@@ -1,0 +1,35 @@
+body{
+    background-color: rgb(246, 247, 240);
+}
+.App{
+    text-align: center;
+    margin-top: 50px;
+}
+.searchBlock{
+    display: flex;
+    font-size: 30px;
+    justify-content: space-around;
+    margin: 30px 7%;
+    box-shadow: 1px 1px 5px grey;
+    padding: 20px;
+    input{
+        width: 70%;
+        font-size: 20px;
+    }
+    button{
+        padding: 12px 30px;
+        font-size: 20px;
+        border: 1px solid grey;
+        border-radius: 8px;
+    }
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.item{
+    width: 30%;
+    margin-bottom: 20px;
+}

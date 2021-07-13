@@ -4,6 +4,7 @@ import './index.scss';
 import Pagination from '@material-ui/lab/Pagination';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Photo from './Photo';
+import Button from '@material-ui/core/Button';
 
 function App() {
   const [text, setText] = React.useState('');
@@ -14,10 +15,8 @@ function App() {
   const [photo, setPhoto] = React.useState();
   
   const onPhotoClick = (photo) => {
-    setLoading(true);
     setPhoto(photo);
     setPhotoOpened(true);
-    setLoading(false);
   }
 
   const fetchImages = async () => {
@@ -52,12 +51,17 @@ function App() {
       </div>
     );
   }
+  const onHeaderClick = ()=>{
+    setText('');
+    setResults([])
+  }
   return (
     <div className="App">
+      <h1 onClick={onHeaderClick}>Unsplash Photo Search</h1>
       {photoOpened && <Photo setPhotoOpened={setPhotoOpened} photo={photo} />}
       <div className="searchBlock">
-        <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
-        <button onClick={fetchImages}>Send</button>
+        <input type="text" value={text} placeholder="Search..." onChange={(e) => setText(e.target.value)} />
+        <Button onClick={fetchImages} variant="contained">Send</Button>
       </div>
       {results.length > 0 ? (
         <div className="pagination">
@@ -77,6 +81,18 @@ function App() {
           return <img onClick={()=>onPhotoClick(item.urls.regular)} className="item" key={id} src={item.urls.small} alt="galleryImg" />;
         })}
       </div>
+      {results.length > 0 ? (
+        <div className="pagination">
+          <Pagination
+            count={10}
+            variant="outlined"
+            color="primary"
+            size="large"
+            onChange={pageChange}
+            page={page}
+          />
+        </div>
+      ) : null}
     </div>
   );
 }

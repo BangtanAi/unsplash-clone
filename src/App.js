@@ -19,7 +19,7 @@ function App() {
     setPhotoOpened(true);
   }
 
-  const fetchImages = async () => {
+  const fetchImages = async (text, value) => {
     setLoading(true);
     const response = await axios.get(
       `https://api.unsplash.com/search/photos?page=${page}&query=${text}&client_id=gLSSdfKNMYT6TQr4WU_bBzmf0r5FwHqRkgCqTd9I6Co&orientation=squarish&order_by=popular`,

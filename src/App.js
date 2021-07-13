@@ -18,8 +18,8 @@ function App() {
     setPhoto(photo);
     setPhotoOpened(true);
   }
-
-  const fetchImages = async (text, value) => {
+ 
+  const fetchImages = async () => {
     setLoading(true);
     const response = await axios.get(
       `https://api.unsplash.com/search/photos?page=${page}&query=${text}&client_id=gLSSdfKNMYT6TQr4WU_bBzmf0r5FwHqRkgCqTd9I6Co&orientation=squarish&order_by=popular`,
@@ -55,14 +55,20 @@ function App() {
     setText('');
     setResults([])
   }
+  const onEnterPress = (event) => {
+    if(event.key === 'Enter'){
+     fetchImages()
+    }
+  }
   return (
     <div className="App">
       <h1 onClick={onHeaderClick}>Unsplash Photo Search</h1>
       {photoOpened && <Photo setPhotoOpened={setPhotoOpened} photo={photo} />}
       <div className="searchBlock">
-        <input type="text" value={text} placeholder="Search..." onChange={(e) => setText(e.target.value)} />
+        <input type="text" value={text} placeholder="Search..." onKeyPress={onEnterPress} onChange={(e) => setText(e.target.value)} />
         <Button onClick={fetchImages} variant="contained">Send</Button>
       </div>
+      
       {results.length > 0 ? (
         <div className="pagination">
           <Pagination

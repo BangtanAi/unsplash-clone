@@ -5,6 +5,7 @@ import Pagination from '@material-ui/lab/Pagination';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Photo from './Photo';
 import Button from '@material-ui/core/Button';
+import Gallery from './Gallery';
 
 function App() {
   const [text, setText] = React.useState('');
@@ -16,7 +17,7 @@ function App() {
   
   const onPhotoClick = (photo) => {
     setPhoto(photo);
-    setPhotoOpened(true);
+    setPhotoOpened(true); 
   }
  
   const fetchImages = async () => {
@@ -25,18 +26,19 @@ function App() {
       `https://api.unsplash.com/search/photos?page=${page}&query=${text}&client_id=gLSSdfKNMYT6TQr4WU_bBzmf0r5FwHqRkgCqTd9I6Co&orientation=squarish&order_by=popular`,
     );
     const data = await response.data;
-    console.log(results.length);
+    // console.log(results.length);
     setResults(data.results);
-    console.log(data.total);
+    // console.log(data.total);
     setLoading(false);
   };
+
   const pageChange = (event, value) => {
     setPage(value);
     fetchImages(text, value);
   };
-  React.useEffect(() => {
-    fetchImages();
-  }, []);
+  // React.useEffect(() => {
+  //   fetchImages();
+  // }, []);
   if (loading) {
     return (
       <div
@@ -82,11 +84,7 @@ function App() {
         </div>
       ) : null}
 
-      <div className="gallery">
-        {results.map((item, id) => {
-          return <img onClick={()=>onPhotoClick(item.urls.regular)} className="item" key={id} src={item.urls.small} alt="galleryImg" />;
-        })}
-      </div>
+      <Gallery results={results} onPhotoClick={onPhotoClick} />
       {results.length > 0 ? (
         <div className="pagination">
           <Pagination

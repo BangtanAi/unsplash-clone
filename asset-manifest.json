@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/unsplash-clone/static/css/main.e2612566.chunk.css",
+    "main.js": "/unsplash-clone/static/js/main.dada157f.chunk.js",
+    "main.js.map": "/unsplash-clone/static/js/main.dada157f.chunk.js.map",
+    "runtime-main.js": "/unsplash-clone/static/js/runtime-main.cbfaa624.js",
+    "runtime-main.js.map": "/unsplash-clone/static/js/runtime-main.cbfaa624.js.map",
+    "static/js/2.68a25f55.chunk.js": "/unsplash-clone/static/js/2.68a25f55.chunk.js",
+    "static/js/2.68a25f55.chunk.js.map": "/unsplash-clone/static/js/2.68a25f55.chunk.js.map",
+    "index.html": "/unsplash-clone/index.html",
+    "static/css/main.e2612566.chunk.css.map": "/unsplash-clone/static/css/main.e2612566.chunk.css.map",
+    "static/js/2.68a25f55.chunk.js.LICENSE.txt": "/unsplash-clone/static/js/2.68a25f55.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cbfaa624.js",
+    "static/js/2.68a25f55.chunk.js",
+    "static/css/main.e2612566.chunk.css",
+    "static/js/main.dada157f.chunk.js"
+  ]
+}
